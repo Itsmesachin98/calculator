@@ -1,0 +1,54 @@
+.display {
+    box-sizing: border-box;
+    width: 440px;
+    height: 80px;
+    border: 1px solid #0077b6;
+    border-radius: 0.3em;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-family: Oxygen, sans-serif;
+    overflow-wrap: break-word;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+table {
+    width: 440px;
+    margin-top: 10px;
+}
+
+tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    font-size: 0.9em;
+    font-family: Poppins, sans-serif;
+    border: none;
+    border-radius: 0.3em;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.equalsTo {
+    background-color: #0077b6;
+    color: white;
+    font-weight: bold;
+}
+
+.number, .point {
+    background-color: #cfe1b9;
+}
+
+.operator, .operatorMultiply, .allclear, .delete {
+    background-color: #e5e5e5;
+}
+
+.number:active, .operator:active, .operatorMultiply:active, .equalsTo:active, .point:active, .allclear:active, .delete:active{
+    border: 1px solid black;
+}
