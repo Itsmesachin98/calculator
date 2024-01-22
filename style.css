@@ -10,8 +10,6 @@ html {
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
     margin-top: 2rem;
     background-color: #343a40;
     display: flex;
@@ -29,8 +27,10 @@ section {
     height: 6rem;
     background-color: #212529;
     border-radius: 0.25rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
     display: flex;
     flex-direction: column;
 }
@@ -56,23 +56,35 @@ section {
 }
 
 table {
-    width: 440px;
-    margin-top: 10px;
+    width: 100%;
+    border-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0.5rem;
+    background-color: #161b33;
 }
 
 tr {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+tr:last-of-type {
+    margin-bottom: 0;
+}
+
+td {
+    padding: 0;
 }
 
 button {
-    width: 100px;
-    height: 40px;
+    width: 4rem;
+    height: 2.5rem;
     font-size: 0.9em;
     font-family: Poppins, sans-serif;
     border: none;
     border-radius: 0.25rem;
-    margin-top: 5px;
     cursor: pointer;
 }
 
