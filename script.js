@@ -9,10 +9,17 @@ const equalsTo = document.querySelector(".equals-to");
 // This function handles the click of a button
 for (let number of numbers) {
     number.addEventListener("click", () => {
-        bottomPane.style.fontSize = "1rem";
+        if (bottomPane.innerText !== "") {
+            const fontSize = window.getComputedStyle(bottomPane);
+            if (fontSize["font-size"] === "32px") {
+                bottomPane.innerText = "";
+            }
+        }
+
         if (bottomPane.innerText === "Malformed Expression") {
             bottomPane.innerText = "";
         }
+        bottomPane.style.fontSize = "1rem";
         bottomPane.innerText += number.innerText;
     });
 }
