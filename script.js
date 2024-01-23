@@ -1,41 +1,49 @@
-const display = document.querySelector(".display");
+const topPane = document.querySelector(".top-pane");
+const bottomPane = document.querySelector(".bottom-pane");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
-const operatorMultiply = document.querySelector(".operatorMultiply");
-const point = document.querySelector(".point")
-const allclear = document.querySelector(".allclear");
-const remove = document.querySelector(".delete");
-const equalsTo = document.querySelector(".equalsTo");
+const ac = document.querySelector(".ac");
+const del = document.querySelector(".del");
+const equalsTo = document.querySelector(".equals-to");
 
+// This function handles the click of a button
 for (let number of numbers) {
-    number.addEventListener("click", function() {
-        display.innerText += number.innerText;
-    })
+    number.addEventListener("click", () => {
+        bottomPane.style.fontSize = "1rem";
+        if (bottomPane.innerText === "Malformed Expression") {
+            bottomPane.innerText = "";
+        }
+        bottomPane.innerText += number.innerText;
+    });
 }
 
+// This function handles the click of any operator
 for (let operator of operators) {
-    operator.addEventListener("click", function() {
-        display.innerText += operator.innerText;
-    })
+    operator.addEventListener("click", () => {
+        if (operator.innerText === "x") {
+            bottomPane.innerText += "*";
+        } else {
+            bottomPane.innerText += operator.innerText;
+        }
+    });
 }
 
-operatorMultiply.addEventListener("click", function() {
-    display.innerText += "*";
-})
+del.addEventListener("click", () => {
+    bottomPane.innerText = bottomPane.innerText.slice(0, -1);
+});
 
-point.addEventListener("click", function() {
-    display.innerText += ".";
-})
+ac.addEventListener("click", () => {
+    topPane.innerText = "";
+    bottomPane.innerText = "";
+});
 
-allclear.addEventListener("click", function() {
-    display.innerText = "";
-})
-
-remove.addEventListener("click", function() {
-    display.innerText = display.innerText.slice(0, -1);
-})
-
-equalsTo.addEventListener("click", function() {
-    let result = eval(display.innerText);
-    display.innerText = result;
-})
+equalsTo.addEventListener("click", () => {
+    try {
+        const result = eval(bottomPane.innerText);
+        topPane.innerText = bottomPane.innerText;
+        bottomPane.innerText = result;
+        bottomPane.style.fontSize = "2rem";
+    } catch (err) {
+        bottomPane.innerText = "Malformed Expression";
+    }
+});
